@@ -303,7 +303,7 @@
 								echo '		<div class="col-megamenu">';
 								echo '<h6 class="menu_title">'.'<a href="products_list.php?pc_name='.$data1["product_sub_category_name"].'" class="head_a">'.$data1["sub_category_display_name"].'</a>'.'</h6>';
 								echo '<ul class="list-unstyled">';
-								$sql2="SELECT * FROM `product_master` where product_category_name='".$data["product_category_name"]."' and product_sub_category_name='".$data1["product_sub_category_name"]."' and available=1";
+								$sql2="SELECT * FROM `product_master` where product_category_name='".$data["product_category_name"]."' and product_sub_category_name='".$data1["product_sub_category_name"]."'";
 								$row2=mysqli_query($connection,$sql2);
 								while($data2=mysqli_fetch_array($row2))
 								{

@@ -2,7 +2,6 @@
 	include "connect_db.php"; 
 	$pId=$_GET["pId"];
 	$papersize=$_GET["papersize"];
-	$cardType=$_GET["cardType"];
 	$cutting=$_GET["cutting"];
 	$frontback=$_GET["frontback"];
 	$qty=$_GET["qty"]; 
@@ -16,11 +15,9 @@
 	else
 	{
 		$sql="SELECT * FROM  product_prcing_master  
-	where product_id='".$pId."' and paper_size_id='".$papersize."' and cutting_type_id='".$cutting."'   and front_back_flag='".$frontback."' and quantity='".$qty."'  and customer_type='".$customerType."' and product_type=".$cardType;
+	where product_id='".$pId."' and paper_size_id='".$papersize."' and cutting_type_id='".$cutting."' and quantity='".$qty."'  and customer_type='".$customerType."'";
 	}
-	
-	
-	 //echo $sql;
+	//echo $sql;
     $query=mysqli_query($connection,$sql);
     if($row=mysqli_fetch_array($query))
     {

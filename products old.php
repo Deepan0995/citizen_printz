@@ -414,7 +414,7 @@
  									<div class="col-sm-3">
  										<?php
 											if (isset($_SESSION['customer_type']) && $_SESSION['customer_type'] == 1) {
-												echo '<input type="radio" class="form-check-input" name="customerTypetxt" checked=true value="1" onchange="fnCalcPrice();"  />B2B';
+												echo '<input type="radio" class="form-check-input" name="customerTypetxt"  value="1" checked=true  onchange="fnCalcPrice();"  />B2B';
 											} else if (!isset($_SESSION['customer_type'])) {
 												echo '<input type="radio" class="form-check-input" name="customerTypetxt" value="1" checked=true  onchange="fnCalcPrice();"  />B2B';
 											} else {
@@ -435,50 +435,30 @@
  									</div>
  								</div>
  								<div class="form-group row mt-1">
- 									<label class="col-sm-3 col-form-label">Type</label>
- 									<div class="col-sm-3">
- 										<input type="radio" class="form-check-input" name="card_typetxt" checked=true value="1" onchange="fnCardType();">Normal
- 									</div>
- 									<div class="col-sm-3">
- 										<input type="radio" class="form-check-input" name="card_typetxt" value="2" onchange="fnCardType();">Square
- 									</div>
- 									<div class="col-sm-3">
- 										<input type="radio" class="form-check-input" name="card_typetxt" value="3" onchange="fnCardType();">Custom
- 									</div>
- 								</div>
- 								<div class="form-group row mt-1">
  									<label class="col-sm-3 col-form-label">Dimension</label>
- 									<div class="col-sm-3 normalCls">
- 										<input type="radio" class="form-check-input" name="dimensiontxt" id="dimensiontxt1" checked=true value="1" onchange="fnChangeDimension();">90X50
+ 									<div class="col-sm-3">
+ 										<input type="radio" class="form-check-input" name="dimensiontxt" id="dimensiontxt1" value="1" onchange="fnChangeDimension();" checked>90X50
  									</div>
- 									<div class="col-sm-3 normalCls">
+ 									<div class="col-sm-4">
  										<input type="radio" class="form-check-input" name="dimensiontxt" id="dimensiontxt2" value="2" onchange="fnChangeDimension();">92X52
- 									</div>
- 									<div class="col-sm-3 squareCls">
- 										<input type="radio" class="form-check-input" name="dimensiontxt" id="dimensiontxt2" value="31" onchange="fnChangeDimension();">69X69
+ 										<!--<select class="form-control" id="dimensiontxt" onchange="fnChangeDimension();">
+						<option value="0">Select</option>
+					  <option value="1">90X50</option>
+					  <option value="2">92X52</option>
+					</select>-->
  									</div>
  								</div>
  								<div class="form-group row mt-1">
  									<label class="col-sm-3 col-form-label">Cutting</label>
  									<div class="col-sm-3">
- 										<input type="radio" class="form-check-input" name="cuttingtxt" checked=true value="1" onchange="fnCalcPrice();">Standard
+ 										<input type="radio" class="form-check-input" name="cuttingtxt" value="1" onchange="fnCalcPrice();" checked>Standard
  									</div>
  									<div class="col-sm-4">
-
  										<input type="radio" class="form-check-input" name="cuttingtxt" value="2" onchange="fnCalcPrice();">Rounded
  										<!--<select class="form-control" id="cuttingtxt" onchange="fnCalcPrice()">
 					  <option value="1">Standard</option>
 					  <option value="2">Rounded</option>
 					</select>-->
- 									</div>
- 								</div>
- 								<div class="form-group row mt-1">
- 									<label class="col-sm-3 col-form-label">Print On</label>
- 									<div class="col-sm-3">
- 										<input type="radio" class="form-check-input" name="front_backtxt" checked=true value="1" onchange="fnCalcPrice();">Front
- 									</div>
- 									<div class="col-sm-4">
- 										<input type="radio" class="form-check-input" name="front_backtxt" value="2" onchange="fnCalcPrice();">Front & Back
  									</div>
  								</div>
 
@@ -497,10 +477,10 @@
  								<div class="form-group row mt-1">
  									<label class="col-sm-3 col-form-label">Customer Type</label>
  									<div class="col-sm-3">
- 										<input type="radio" class="form-check-input" name="customerTypetxt" value="1" onchange="fnCalcPrice();" />B2B
+ 										<input type="radio" class="form-check-input" name="customerTypetxt" value="1" onchange="fnCalcPrice();" checked=true />B2B
  									</div>
  									<div class="col-sm-4">
- 										<input type="radio" class="form-check-input" name="customerTypetxt" value="2" onchange="fnCalcPrice();" checked=true />B2C
+ 										<input type="radio" class="form-check-input" name="customerTypetxt" value="2" onchange="fnCalcPrice();" />B2C
  									</div>
  								</div>
 
@@ -512,7 +492,7 @@
  										<div class="col-sm-7">
  											<select class="form-select" id="paperTypetxt" onchange="fnPostersQuantity()">
  												<option value="0">Select</option>
- 												<option value="4" Selected>A3</option>
+ 												<option value="4" selected>A3</option>
  												<option value="5">A4</option>
  												<option value="6">A5</option>
  											</select>
@@ -527,7 +507,7 @@
  										<div class="col-sm-7">
  											<select class="form-select" id="paperTypetxt" onchange="fnFlyersQuantity()">
  												<option value="0">Select</option>
- 												<option value="5" Selected>A4</option>
+ 												<option value="5">A4</option>
  												<option value="6">A5</option>
  											</select>
  										</div>
@@ -539,7 +519,7 @@
  									<div class="form-group row mt-1">
  										<label class="col-sm-3 col-form-label">Print On</label>
  										<div class="col-sm-3">
- 											<input type="radio" class="form-check-input" name="front_backtxt" checked=true value="1" onchange="fnCalcPrice2();">Front
+ 											<input type="radio" class="form-check-input" name="front_backtxt" value="1" onchange="fnCalcPrice2();">Front
  										</div>
  										<div class="col-sm-4">
  											<input type="radio" class="form-check-input" name="front_backtxt" value="2" onchange="fnCalcPrice2();">Front & Back
@@ -554,7 +534,7 @@
  										<div class="col-sm-7">
  											<select class="form-select" id="paperTypetxt" onchange="fnBookmarksQuantity()">
  												<option value="0">Select</option>
- 												<option value="13" Selected>2 x 6 inches</option>
+ 												<option value="13">2 x 6 inches</option>
  												<option value="14">2 x 7 inches</option>
  												<option value="15">2 x 8 inches</option>
  											</select>
@@ -563,7 +543,7 @@
  									<div class="form-group row mt-1">
  										<label class="col-sm-3 col-form-label">Print On</label>
  										<div class="col-sm-3">
- 											<input type="radio" class="form-check-input" name="front_backtxt" checked=true value="1" onchange="fnCalcPrice1();">Front
+ 											<input type="radio" class="form-check-input" name="front_backtxt" value="1" onchange="fnCalcPrice1();">Front
  										</div>
  										<div class="col-sm-4">
  											<input type="radio" class="form-check-input" name="front_backtxt" value="2" onchange="fnCalcPrice1();">Front & Back
@@ -577,7 +557,7 @@
  										<div class="col-sm-7">
  											<select class="form-select" id="paperTypetxt" onchange="fnLanyardsQuantity()">
  												<option value="0">Select</option>
- 												<option value="7" Selected>12 mm</option>
+ 												<option value="7">12 mm</option>
  												<option value="8">16 mm</option>
  												<option value="9">20 mm</option>
  											</select>
@@ -592,7 +572,7 @@
  										<div class="col-sm-7">
  											<select class="form-select" id="sizetxt" onchange="fnBrouchersQuantity()">
  												<option value="0">Select</option>
- 												<option value="5" Selected>A4</option>
+ 												<option value="5">A4</option>
  												<?php
 													if ($product_code == 'brochures') {
 														echo ' <option value="6">A5</option>';
@@ -604,7 +584,7 @@
  									<div class="form-group row mt-1">
  										<label class="col-sm-3 col-form-label">Print On</label>
  										<div class="col-sm-3">
- 											<input type="radio" class="form-check-input" name="front_backtxt" checked=true value="1" onchange="fnCalcPrice();">Front
+ 											<input type="radio" class="form-check-input" name="front_backtxt" value="1" onchange="fnCalcPrice();">Front
  										</div>
  										<div class="col-sm-4">
  											<input type="radio" class="form-check-input" name="front_backtxt" value="2" onchange="fnCalcPrice();">Front & Back
@@ -613,7 +593,7 @@
  									<div class="form-group row mt-1">
  										<label class="col-sm-3 col-form-label">Orientation</label>
  										<div class="col-sm-3">
- 											<input type="radio" class="form-check-input" name="orientationTxt" checked=true value="1" onchange="fnCalcPrice4();">Portrait
+ 											<input type="radio" class="form-check-input" name="orientationTxt" value="1" onchange="fnCalcPrice4();">Portrait
  										</div>
  										<div class="col-sm-4">
  											<input type="radio" class="form-check-input" name="orientationTxt" value="2" onchange="fnCalcPrice4();">Lanscape
@@ -625,7 +605,7 @@
  										<div class="col-sm-7">
  											<select class="form-select" id="paperTypetxt" onchange="fnCalcPrice4()">
  												<option value="0">Select</option>
- 												<option value="130" Selected>130 GSM</option>
+ 												<option value="130">130 GSM</option>
  												<option value="170">170 GSM</option>
  											</select>
  										</div>
@@ -636,7 +616,7 @@
  											<input type="radio" class="form-check-input" name="foldingTxt" value="1" onchange="fnCalcPrice4();">None
  										</div>
  										<div class="col-sm-3">
- 											<input type="radio" class="form-check-input" name="foldingTxt" checked=true value="2" onchange="fnCalcPrice4();">Half
+ 											<input type="radio" class="form-check-input" name="foldingTxt" value="2" onchange="fnCalcPrice4();">Half
  										</div>
  										<div class="col-sm-3">
  											<input type="radio" class="form-check-input" name="foldingTxt" value="3" onchange="fnCalcPrice4();">Trifold
@@ -650,7 +630,7 @@
  										<div class="col-sm-7">
  											<select class="form-select" id="sizetxt" onchange="fnBooklets()">
  												<option value="0">Select</option>
- 												<option value="A4" Selected>A4</option>
+ 												<option value="A4">A4</option>
  												<option value="A5">A5</option>
  												<option value="Custom">Custom</option>
  											</select>
@@ -661,7 +641,7 @@
  										<div class="col-sm-7">
  											<select class="form-select" id="paperTypetxt" onchange="fnBooklets()">
  												<option value="0">Select</option>
- 												<option value="170" Selected>170 GSM</option>
+ 												<option value="170">170 GSM</option>
  												<option value="130">130 GSM</option>
  											</select>
  										</div>
@@ -713,7 +693,7 @@
  								<div class="col-sm-7">
  									<select class="form-select" id="paperTypetxt" onchange="fnBindingQuantity()">
  										<option value="0">Select</option>
- 										<option value="5" Selected>A4</option>
+ 										<option value="5">A4</option>
  										<option value="6">A5</option>
  										<option value="7">A6</option>
  										<option value="custom">Custom</option>
@@ -729,7 +709,7 @@
  							<div class="form-group row mt-1">
  								<label class="col-sm-3 col-form-label">Binding Location</label>
  								<div class="col-sm-3">
- 									<input type="radio" class="form-check-input" name="bindlocTxt" checked=true value="1" onchange="fnBindingQuantity();">Side
+ 									<input type="radio" class="form-check-input" name="bindlocTxt" value="1" onchange="fnBindingQuantity();">Side
  								</div>
  								<div class="col-sm-3">
  									<input type="radio" class="form-check-input" name="bindlocTxt" value="2" onchange="fnBindingQuantity();">Head
@@ -760,7 +740,7 @@
  								<div class="col-sm-7">
  									<select class="form-select" id="cuttingtxt" onchange="fnDanglersSize()">
  										<option value="0">Select</option>
- 										<option value="3" Selected>Rectangle</option>
+ 										<option value="3">Rectangle</option>
  										<option value="4">Square</option>
  										<option value="5">Circle</option>
  										<option value="-1">Custom</option>
@@ -780,7 +760,7 @@
  							<div class="form-group row mt-1">
  								<label class="col-sm-3 col-form-label">Print On</label>
  								<div class="col-sm-3">
- 									<input type="radio" class="form-check-input" name="front_backtxt" checked=true value="1" onchange="fnCalcPrice3()">Front
+ 									<input type="radio" class="form-check-input" name="front_backtxt" value="1" onchange="fnCalcPrice3()">Front
  								</div>
  								<div class="col-sm-4">
  									<input type="radio" class="form-check-input" name="front_backtxt" value="2" onchange="fnCalcPrice3()">Front & Back
@@ -789,7 +769,7 @@
  							<div class="form-group row mt-1">
  								<label class="col-sm-3 col-form-label">Orientation</label>
  								<div class="col-sm-3">
- 									<input type="radio" class="form-check-input" name="orientationTxt" checked=true value="1">Portrait
+ 									<input type="radio" class="form-check-input" name="orientationTxt" value="1">Portrait
  								</div>
  								<div class="col-sm-4">
  									<input type="radio" class="form-check-input" name="orientationTxt" value="2">Landscape
@@ -823,7 +803,7 @@
  								<div class="col-sm-7">
  									<select class="form-select" id="papersize" onchange="fnTabletentsQuantity()">
  										<option value="0">Select</option>
- 										<option value="5" Selected>A4</option>
+ 										<option value="5">A4</option>
  										<option value="6">A5</option>
  										<option value="16">A6</option>
  									</select>
@@ -832,7 +812,7 @@
  							<div class="form-group row mt-1">
  								<label class="col-sm-3 col-form-label">Orientation</label>
  								<div class="col-sm-3">
- 									<input type="radio" class="form-check-input" name="orientationTxt" checked=true value="1">Portrait
+ 									<input type="radio" class="form-check-input" name="orientationTxt" value="1">Portrait
  								</div>
  								<div class="col-sm-4">
  									<input type="radio" class="form-check-input" name="orientationTxt" value="2">Landscape
@@ -866,7 +846,7 @@
  								<div class="col-sm-7">
  									<select class="form-select" id="papersize">
  										<option value="0">Select</option>
- 										<option value="5" Selected>A4</option>
+ 										<option value="5">A4</option>
  										<option value="6">A3</option>
  									</select>
  								</div>
@@ -874,7 +854,7 @@
  							<div class="form-group row mt-1">
  								<label class="col-sm-3 col-form-label">Print Location</label>
  								<div class="col-sm-3">
- 									<input type="radio" class="form-check-input" name="front_backtxt" checked=true value="1">Front
+ 									<input type="radio" class="form-check-input" name="front_backtxt" value="1">Front
  								</div>
  								<div class="col-sm-4">
  									<input type="radio" class="form-check-input" name="front_backtxt" value="2">Front & Back
@@ -883,7 +863,7 @@
  							<div class="form-group row mt-1">
  								<label class="col-sm-3 col-form-label">Orientation</label>
  								<div class="col-sm-3">
- 									<input type="radio" class="form-check-input" name="orientationTxt" checked=true value="1">Portrait
+ 									<input type="radio" class="form-check-input" name="orientationTxt" value="1">Portrait
  								</div>
  								<div class="col-sm-4">
  									<input type="radio" class="form-check-input" name="orientationTxt" value="2">Landscape
@@ -920,7 +900,7 @@
 										?>
  										<select class="form-select" id="papersize" onchange="fnDoorHangersQuantity()">
  											<option value="0">Select</option>
- 											<option value="23" Selected>3.5x8.5 inches</option>
+ 											<option value="23">3.5x8.5 inches</option>
  											<option value="24">4.5x11 inches</option>
  										</select>
  								</div>
@@ -929,7 +909,7 @@
 								?>
  								<select class="form-select" id="papersize" onchange="fnGreetingCardsQuantity()">
  									<option value="0">Select</option>
- 									<option value="5" Selected>A4</option>
+ 									<option value="5">A4</option>
  									<option value="6">A5</option>
  									<option value="16">A6</option>
  									<option value="25">A4 Folded</option>
@@ -942,7 +922,7 @@
 							?>
  							<select class="form-select" id="papersize" onchange="fnThankyouCardsQuantity()">
  								<option value="0">Select</option>
- 								<option value="6" Selected>A5</option>
+ 								<option value="6">A5</option>
  								<option value="16">A6</option>
  							</select>
  					</div>
@@ -951,7 +931,7 @@
 					?>
  					<select class="form-select" id="papersize" onchange="fnTicketsQuantity()">
  						<option value="0">Select</option>
- 						<option value="28" Selected>10x6 inches</option>
+ 						<option value="28">10x6 inches</option>
  						<option value="29">9x4 inches</option>
  						<option value="30">8x3 inches</option>
  					</select>
@@ -966,7 +946,7 @@
  				<div class="form-group row mt-1">
  					<label class="col-sm-3 col-form-label">Print Material</label>
  					<div class="col-sm-3">
- 						<input type="radio" class="form-check-input" name="print_materialtxt" checked=true value="130">130 GSM
+ 						<input type="radio" class="form-check-input" name="print_materialtxt" value="130">130 GSM
  					</div>
  					<div class="col-sm-3">
  						<input type="radio" class="form-check-input" name="print_materialtxt" value="170">170 GSM
@@ -981,7 +961,7 @@
  			<div class="form-group row mt-1">
  				<label class="col-sm-3 col-form-label">Print Location</label>
  				<div class="col-sm-3">
- 					<input type="radio" class="form-check-input" name="front_backtxt" checked=true value="1" onchange="fnCalcPrice4()">Front
+ 					<input type="radio" class="form-check-input" name="front_backtxt" value="1" onchange="fnCalcPrice4()">Front
  				</div>
  				<div class="col-sm-4">
  					<input type="radio" class="form-check-input" name="front_backtxt" value="2" onchange="fnCalcPrice4()">Front & Back
@@ -993,7 +973,7 @@
  				<div class="form-group row mt-1">
  					<label class="col-sm-3 col-form-label">Orientation</label>
  					<div class="col-sm-3">
- 						<input type="radio" class="form-check-input" name="orientationTxt" checked=true value="1">Portrait
+ 						<input type="radio" class="form-check-input" name="orientationTxt" value="1">Portrait
  					</div>
  					<div class="col-sm-4">
  						<input type="radio" class="form-check-input" name="orientationTxt" value="2">Landscape
@@ -1049,10 +1029,19 @@
  <script src='js/jquery_1_11_0.min.js'></script>
  <script src='js/lightslider.js'></script>
  <script>
- 	
+ 	document.addEventListener('DOMContentLoaded', function() {
+
+ 		if (document.getElementById('dimensiontxt1').checked) {
+
+ 			fnChangeDimension();
+ 		}
+ 		if (document.getElementById('dimensiontxt1').checked) {
+
+ 			fnCalcPrice();
+ 		}
 
 
-
+ 	});
 
 
  	$('#lightSlider').lightSlider({
@@ -1064,7 +1053,6 @@
  	});
  	var prod_code = "";
  	var arrQuantity = [];
-
  	$(document).ready(function() {
  		prod_code = $('#product_codetxt').val();
  		if (prod_code == "letter_heads") {
@@ -1085,24 +1073,7 @@
  			}
  			$('#quantity1txt').val(selQty);
  		}
- 		fnCardType();
- 		fnChangeDimension();
-
  	});
-
- 	function fnCardType() {
- 		var selCardType = $('input[name="card_typetxt"]:checked').val();
- 		if (selCardType == 1) {
- 			$('.squareCls').hide();
- 			$('.normalCls').show();
- 		} else if (selCardType == 2) {
- 			$('.squareCls').show();
- 			$('.normalCls').hide();
- 		} else if (selCardType == 3) {
- 			$('.squareCls').show();
- 			$('.normalCls').show();
- 		}
- 	}
 
  	function fnPostersQuantity() {
  		var selPaperType = $('#paperTypetxt').val();
@@ -1308,7 +1279,7 @@
  				return;
  			}
  			if (frontback == undefined || frontback == 0) {
- 				//alert('Select Print On');
+
  				return false;
  			}
  		} else if (pCode == 'greeting_cards' || pCode == 'thank_you_cards' || pCode == 'tickets') {
@@ -1322,7 +1293,7 @@
  				return;
  			}
  			if (frontback == undefined || frontback == 0) {
- 				//alert('Select Print On');
+
  				return false;
  			}
  			if (orientation == undefined || orientation == 0) {
@@ -1333,7 +1304,7 @@
  			orientation = 0;
  		}
  		if (folding == undefined || folding == 0) {
- 			//alert('Select Folding');
+
  			return false;
  		}
  		if (folding != 1 && folding != -1) {
@@ -1341,7 +1312,7 @@
  			return;
  		}
  		if (qty == undefined || qty == 0) {
- 			//alert('Select Quantity');
+
  			return false;
  		}
 
@@ -1374,21 +1345,21 @@
  		var frontback = $('input[name="front_backtxt"]:checked').val();
  		var papersize = $('#papersize').val();
  		if (qty == undefined || qty == 0) {
- 			//alert('Select Quantity');
+
  			return false;
  		}
  		if (frontback == undefined || frontback == 0) {
- 			//alert('Select Print on');
+
  			return false;
  		}
  		if (frontback == undefined || frontback == 0) {
- 			//alert('Select Print on');
+
  			return false;
  		}
  		var amt = 0;
  		if (pId == 86) {
  			if (qty < 25) {
- 				//alert('Quantity minimum value is 25/-');
+ 				alert('Quantity minimum value is 25/-');
  				return false;
  			} else if (qty >= 25 && qty <= 200) {
  				if (papersize == 5 && frontback == 1) {
@@ -1420,7 +1391,7 @@
  			}
  		} else if (pId == 88) {
  			if (qty < 25) {
- 				//alert('Quantity minimum value is 25/-');
+ 				alert('Quantity minimum value is 25/-');
  				return false;
  			} else if (qty >= 25 && qty <= 200) {
  				if (papersize == 5 && frontback == 1) {
@@ -1473,11 +1444,11 @@
  			return;
  		}
  		if (qty == undefined || qty == 0) {
- 			//alert('Select Quantity');
+
  			return false;
  		}
  		if (frontback == undefined || frontback == 0) {
- 			//alert('Select Print on');
+
  			return false;
  		}
  		if (frontback == 2 || cutting == -1) {
@@ -1514,11 +1485,11 @@
  		var front_backtxt = $('input[name="front_backtxt"]:checked').val();
  		var customerType = $('input[name="customerTypetxt"]:checked').val();
  		if (qty == undefined || qty == 0) {
- 			//alert('Select Quantity');
+
  			return false;
  		}
  		if (front_backtxt == undefined || front_backtxt == 0) {
- 			//alert('Select Print on');
+
  			return false;
  		}
  		var selQtyIndex = arrQuantity.indexOf(qty);
@@ -1538,7 +1509,7 @@
  		var customerType = $('input[name="customerTypetxt"]:checked').val();
  		var front_backtxt = $('input[name="front_backtxt"]:checked').val();
  		if (qty == undefined || qty == 0) {
- 			//alert('Select Quantity');
+
  			return false;
  		}
 
@@ -1556,7 +1527,7 @@
  		}
  		if (pCode == "bookmarks") {
  			if (front_backtxt == undefined || qty == 0) {
- 				//alert('Select Print On');
+
  				return false;
  			}
 
@@ -1590,10 +1561,8 @@
  		var arr = [];
  		if (selId == 1) {
  			arr = [90, 210, 300, 390, 510, 990, 1980, 3000, 3990, 4980];
- 		} else if (selId == 2) {
+ 		} else {
  			arr = [100, 200, 300, 400, 500, 1000, 2000, 3000, 4000, 5000];
- 		} else if (selId == 31) {
- 			arr = [96, 192, 288, 384, 504, 1968, 3000, 4984, 4968];
  		}
  		$('#quantitytxt').empty();
  		$('#quantitytxt').append('<option value="0">Select</option>');
@@ -1612,40 +1581,28 @@
  		var pId = $('#product_id').val();
  		var customerType = $('input[name="customerTypetxt"]:checked').val(); //$('#dimensiontxt').val();
  		var papersize = $('input[name="dimensiontxt"]:checked').val(); //$('#dimensiontxt').val();
- 		var cardType = $('input[name="card_typetxt"]:checked').val(); //$('#dimensiontxt').val();
  		var cutting = $('input[name="cuttingtxt"]:checked').val(); //$('#cuttingtxt').val();
  		var frontback = $('input[name="front_backtxt"]:checked').val(); //$('#front_backtxt').val();
  		var qty = $('#quantitytxt').val();
  		if (papersize == undefined || papersize == 0) {
- 			//alert('Select Dimension');
+
  			return false;
  		}
  		if (qty == undefined || qty == 0) {
- 			//alert('Select Quantity');
+
  			return false;
  		}
  		if (cutting == undefined || cutting == 0) {
- 			//alert('Select Cutting');
+
  			return false;
  		}
- 		/*if(pId == 19 || pId == 20)
- 		{
- 			if(frontback==undefined || frontback==0)
- 			{
- 				alert('Select Front/Black');
+ 		if (pId == 19 || pId == 20) {
+ 			if (frontback == undefined || frontback == 0) {
+
  				return false;
  			}
- 		}
- 		else
- 		{
- 			frontback=0;
- 		}*/
- 		if (pId == 19 || pId == 20) {
- 			cardType = 0;
- 		}
- 		if (frontback == undefined || frontback == 0) {
- 			//alert('Select Front/Black');
- 			return false;
+ 		} else {
+ 			frontback = 0;
  		}
  		$.ajax({
  			type: "GET",
@@ -1656,7 +1613,6 @@
  				cutting: cutting,
  				frontback: frontback,
  				qty: qty,
- 				cardType: cardType,
  				customerType: customerType
  			},
  			success: function(response) {
