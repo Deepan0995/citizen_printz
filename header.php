@@ -38,6 +38,8 @@
   <link rel="stylesheet" href="plugins/colorbox/colorbox.css">
   <!-- Template styles-->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 <style>
  .head_a:hover{
 	 color: #f04f36;
@@ -54,16 +56,16 @@
 
 
 /* ============ mobile view ============ */
-@media(max-width: 991px){
-	.navbar.fixed-top .navbar-collapse, .navbar.sticky-top .navbar-collapse{
+@media(max-width: 991px)
+{
+	.navbar.fixed-top .navbar-collapse, .navbar.sticky-top .navbar-collapse
+  {
 		overflow-y: auto;
 	    max-height: 90vh;
 	    margin-top:10px;
 	}
-	
-	
-	 
 
+}
 	</style
 </head>
 <body>
@@ -174,7 +176,7 @@
     </div>
     </form>
 			</div>
-            <div class="col-lg-4 header-right">
+            <div class="col-lg-4 mt-1 header-right">
                 <ul class="top-info-box"> 
 				  <?php
 				  
@@ -195,6 +197,7 @@
                       </div>
                     </div>
                   </li>
+                
 				  <?php
 					}
 					else 
@@ -221,11 +224,26 @@
                   <li>
                     <div class="info-box">
                       <div class="info-box-content">
-                          <a href="view_cart.php"><i class="fa fa-shopping-cart cartCls" ></i>Cart (<span class="cart_qty"></span>) </a>
+                          <a href="view_cart.php"><i class="fa fa-shopping-cart cartCls" ></i>
+                          Cart (<span class="cart_qty"></span>) 
+                          </a>
                       </div>
                     </div>
                   </li>
-                  
+                  <?php
+              if(isset($_SESSION['logged_in']))
+              {   
+              ?>
+                  <li>
+                    <div class="info-box ">
+                      <div class="info-box-content">
+                      <a href="my_account.php"><i class="fa  fa-user-circle cartCls"></i> My Account</a>
+                      </div>
+                    </div>
+                  </li>
+                  <?php
+              }
+              ?>
                 </ul><!-- Ul end -->
             </div><!-- header right end -->
           </div><!-- logo area end -->
@@ -323,7 +341,7 @@
 											
 									  
 						<li class="nav-item <?php if($Page=='contact') echo 'active'; ?>"><a class="nav-link" href="contact.php">Contact</a></li>
-						 
+          
                     </ul>
                 </div>
               </nav>

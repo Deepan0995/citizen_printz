@@ -19,4 +19,5 @@ if(isset($_POST["uname"]) && isset($_POST["pword"]))
     } 
 } 
 echo    $result;   
+
 ?>

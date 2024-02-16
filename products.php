@@ -442,9 +442,10 @@
  									<div class="col-sm-3">
  										<input type="radio" class="form-check-input" name="card_typetxt" value="2" onchange="fnCardType();">Square
  									</div>
- 									<div class="col-sm-3">
+ 									<!-- commented Custom Type Functionality -->
+ 									<!-- <div class="col-sm-3">
  										<input type="radio" class="form-check-input" name="card_typetxt" value="3" onchange="fnCardType();">Custom
- 									</div>
+ 									</div> -->
  								</div>
  								<div class="form-group row mt-1">
  									<label class="col-sm-3 col-form-label">Dimension</label>
@@ -454,6 +455,7 @@
  									<div class="col-sm-3 normalCls">
  										<input type="radio" class="form-check-input" name="dimensiontxt" id="dimensiontxt2" value="2" onchange="fnChangeDimension();">92X52
  									</div>
+ 									<!-- commented Custom Type Functionality -->
  									<div class="col-sm-3 squareCls">
  										<input type="radio" class="form-check-input" name="dimensiontxt" id="dimensiontxt2" value="31" onchange="fnChangeDimension();">69X69
  									</div>
@@ -490,506 +492,312 @@
  										</select>
  									</div>
  								</div>
- 							<?php
+ 								<div class="form-group row mt-1">
+ 									<label class="col-sm-3 col-form-label">Upload Image/PDF</label>
+ 									<div class="col-sm-7 mt-1">
+ 										<input type="file" class="form-control-file" id="fileUpload" name="fileUpload" accept=".jpg, .phd, .png, .pdf">
+ 										<progress id="progressBar" value="0" max="100" style="display: none;"></progress>
+ 										<div id="uploadStatus"></div>
+ 									</div>
+ 								</div>
+
+ 					</div>
+ 				<?php
 								}
 								if ($product_code == 'letter_heads' || $product_code == 'posters' || $product_code == 'flyers'  || $product_code == 'lanyards'  || $product_code == 'certificates' || $product_code == 'id_cards' || $product_code == "bookmarks" || $product_code == "envelope_printing" || $product_code == "booklets" || $product_code == "brochures" || $product_code == "catalogs" || $product_code == "danglers") {
-								?>
- 								<div class="form-group row mt-1">
- 									<label class="col-sm-3 col-form-label">Customer Type</label>
- 									<div class="col-sm-3">
- 										<input type="radio" class="form-check-input" name="customerTypetxt" value="1" onchange="fnCalcPrice();" />B2B
- 									</div>
- 									<div class="col-sm-4">
- 										<input type="radio" class="form-check-input" name="customerTypetxt" value="2" onchange="fnCalcPrice();" checked=true />B2C
- 									</div>
- 								</div>
+					?>
+ 					<div class="form-group row mt-1">
+ 						<label class="col-sm-3 col-form-label">Customer Type</label>
+ 						<div class="col-sm-3">
+ 							<input type="radio" class="form-check-input" name="customerTypetxt" value="1" onchange="fnCalcPrice();" />B2B
+ 						</div>
+ 						<div class="col-sm-4">
+ 							<input type="radio" class="form-check-input" name="customerTypetxt" value="2" onchange="fnCalcPrice();" checked=true />B2C
+ 						</div>
+ 					</div>
 
- 								<?php
+ 					<?php
 									if ($product_code == 'posters') {
-									?>
- 									<div class="form-group row mt-1">
- 										<label class="col-sm-3 col-form-label">Size</label>
- 										<div class="col-sm-7">
- 											<select class="form-select" id="paperTypetxt" onchange="fnPostersQuantity()">
- 												<option value="0">Select</option>
- 												<option value="4" Selected>A3</option>
- 												<option value="5">A4</option>
- 												<option value="6">A5</option>
- 											</select>
- 										</div>
- 									</div>
- 								<?php
+						?>
+ 						<div class="form-group row mt-1">
+ 							<label class="col-sm-3 col-form-label">Size</label>
+ 							<div class="col-sm-7">
+ 								<select class="form-select" id="paperTypetxt" onchange="fnPostersQuantity()">
+ 									<option value="0">Select</option>
+ 									<option value="4" Selected>A3</option>
+ 									<option value="5">A4</option>
+ 									<option value="6">A5</option>
+ 								</select>
+ 							</div>
+ 						</div>
+ 					<?php
 
 									} else if ($product_code == 'flyers') {
-									?>
- 									<div class="form-group row mt-1">
- 										<label class="col-sm-3 col-form-label">Size</label>
- 										<div class="col-sm-7">
- 											<select class="form-select" id="paperTypetxt" onchange="fnFlyersQuantity()">
- 												<option value="0">Select</option>
- 												<option value="5" Selected>A4</option>
- 												<option value="6">A5</option>
- 											</select>
- 										</div>
- 									</div>
-
- 								<?php
-									} else if ($product_code == 'id_cards') {
-									?>
- 									<div class="form-group row mt-1">
- 										<label class="col-sm-3 col-form-label">Print On</label>
- 										<div class="col-sm-3">
- 											<input type="radio" class="form-check-input" name="front_backtxt" checked=true value="1" onchange="fnCalcPrice2();">Front
- 										</div>
- 										<div class="col-sm-4">
- 											<input type="radio" class="form-check-input" name="front_backtxt" value="2" onchange="fnCalcPrice2();">Front & Back
- 										</div>
- 									</div>
-
- 								<?php
-									} else if ($product_code == 'bookmarks') {
-									?>
- 									<div class="form-group row mt-1">
- 										<label class="col-sm-3 col-form-label">Size</label>
- 										<div class="col-sm-7">
- 											<select class="form-select" id="paperTypetxt" onchange="fnBookmarksQuantity()">
- 												<option value="0">Select</option>
- 												<option value="13" Selected>2 x 6 inches</option>
- 												<option value="14">2 x 7 inches</option>
- 												<option value="15">2 x 8 inches</option>
- 											</select>
- 										</div>
- 									</div>
- 									<div class="form-group row mt-1">
- 										<label class="col-sm-3 col-form-label">Print On</label>
- 										<div class="col-sm-3">
- 											<input type="radio" class="form-check-input" name="front_backtxt" checked=true value="1" onchange="fnCalcPrice1();">Front
- 										</div>
- 										<div class="col-sm-4">
- 											<input type="radio" class="form-check-input" name="front_backtxt" value="2" onchange="fnCalcPrice1();">Front & Back
- 										</div>
- 									</div>
- 								<?php
-									} else if ($product_code == 'lanyards') {
-									?>
- 									<div class="form-group row mt-1">
- 										<label class="col-sm-3 col-form-label">Size</label>
- 										<div class="col-sm-7">
- 											<select class="form-select" id="paperTypetxt" onchange="fnLanyardsQuantity()">
- 												<option value="0">Select</option>
- 												<option value="7" Selected>12 mm</option>
- 												<option value="8">16 mm</option>
- 												<option value="9">20 mm</option>
- 											</select>
- 										</div>
- 									</div>
-
- 								<?php
-									} else if ($product_code == 'brochures' || $product_code == 'catalogs') {
-									?>
- 									<div class="form-group row mt-1">
- 										<label class="col-sm-3 col-form-label">Size</label>
- 										<div class="col-sm-7">
- 											<select class="form-select" id="sizetxt" onchange="fnBrouchersQuantity()">
- 												<option value="0">Select</option>
- 												<option value="5" Selected>A4</option>
- 												<?php
-													if ($product_code == 'brochures') {
-														echo ' <option value="6">A5</option>';
-													}
-													?>
- 											</select>
- 										</div>
- 									</div>
- 									<div class="form-group row mt-1">
- 										<label class="col-sm-3 col-form-label">Print On</label>
- 										<div class="col-sm-3">
- 											<input type="radio" class="form-check-input" name="front_backtxt" checked=true value="1" onchange="fnCalcPrice();">Front
- 										</div>
- 										<div class="col-sm-4">
- 											<input type="radio" class="form-check-input" name="front_backtxt" value="2" onchange="fnCalcPrice();">Front & Back
- 										</div>
- 									</div>
- 									<div class="form-group row mt-1">
- 										<label class="col-sm-3 col-form-label">Orientation</label>
- 										<div class="col-sm-3">
- 											<input type="radio" class="form-check-input" name="orientationTxt" checked=true value="1" onchange="fnCalcPrice4();">Portrait
- 										</div>
- 										<div class="col-sm-4">
- 											<input type="radio" class="form-check-input" name="orientationTxt" value="2" onchange="fnCalcPrice4();">Lanscape
- 										</div>
- 									</div>
-
- 									<div class="form-group row mt-1">
- 										<label class="col-sm-3 col-form-label">Paper Type</label>
- 										<div class="col-sm-7">
- 											<select class="form-select" id="paperTypetxt" onchange="fnCalcPrice4()">
- 												<option value="0">Select</option>
- 												<option value="130" Selected>130 GSM</option>
- 												<option value="170">170 GSM</option>
- 											</select>
- 										</div>
- 									</div>
- 									<div class="form-group row mt-1">
- 										<label class="col-sm-3 col-form-label">Folding</label>
- 										<div class="col-sm-3">
- 											<input type="radio" class="form-check-input" name="foldingTxt" value="1" onchange="fnCalcPrice4();">None
- 										</div>
- 										<div class="col-sm-3">
- 											<input type="radio" class="form-check-input" name="foldingTxt" checked=true value="2" onchange="fnCalcPrice4();">Half
- 										</div>
- 										<div class="col-sm-3">
- 											<input type="radio" class="form-check-input" name="foldingTxt" value="3" onchange="fnCalcPrice4();">Trifold
- 										</div>
- 									</div>
- 								<?php
-									} else if ($product_code == 'booklets') {
-									?>
- 									<div class="form-group row mt-1">
- 										<label class="col-sm-3 col-form-label">Size</label>
- 										<div class="col-sm-7">
- 											<select class="form-select" id="sizetxt" onchange="fnBooklets()">
- 												<option value="0">Select</option>
- 												<option value="A4" Selected>A4</option>
- 												<option value="A5">A5</option>
- 												<option value="Custom">Custom</option>
- 											</select>
- 										</div>
- 									</div>
- 									<div class="form-group row mt-1">
- 										<label class="col-sm-3 col-form-label">Paper Type</label>
- 										<div class="col-sm-7">
- 											<select class="form-select" id="paperTypetxt" onchange="fnBooklets()">
- 												<option value="0">Select</option>
- 												<option value="170" Selected>170 GSM</option>
- 												<option value="130">130 GSM</option>
- 											</select>
- 										</div>
- 									</div>
- 									<div class="form-group row mt-1">
- 										<label class="col-sm-3 col-form-label">Pages</label>
- 										<div class="col-sm-7">
- 											<input type="text" class="form-control" id="pagestxt" onchange="fnBooklets()" />
- 										</div>
- 									</div>
- 									<div class="form-group row mt-1">
- 										<label class="col-sm-3 col-form-label">Quantity</label>
- 										<div class="col-sm-7">
- 											<input type="text" class="form-control" id="qtytxt" onchange="fnBooklets()" />
- 										</div>
- 									</div>
- 								<?php
-									}
-									if ($product_code != 'booklets') {
-									?>
- 									<div class="form-group row mt-1">
- 										<label class="col-sm-3 col-form-label">Quantity</label>
- 										<div class="col-sm-7">
- 											<select class="form-select" id="quantity1txt" onchange="fnCalcPrice1()">
-
- 											</select>
- 										</div>
- 									</div>
- 							<?php
-									}
-								}
-								?>
- 							<div class="card-headerDiv mt-4">
-
-
- 								<span class="calculator-heading">
- 									<span class="calc-heading-text">Get Started</span>
- 									<span class="calc-total-price ">
- 										<span class="total-price" id="total_price">Rs 0.00/-</span>
- 									</span>
- 								</span>
- 							</div>
- 						<?php
-							} else if ($product_sub_category_name == 'bindings') {
-							?>
- 							<h4 class="font-weight-bold mt-0">Details</h4>
- 							<div class="form-group row mt-1">
- 								<label class="col-sm-3 col-form-label">Document Size</label>
- 								<div class="col-sm-7">
- 									<select class="form-select" id="paperTypetxt" onchange="fnBindingQuantity()">
- 										<option value="0">Select</option>
- 										<option value="5" Selected>A4</option>
- 										<option value="6">A5</option>
- 										<option value="7">A6</option>
- 										<option value="custom">Custom</option>
- 									</select>
- 								</div>
- 							</div>
- 							<div class="form-group row mt-1">
- 								<label class="col-sm-3 col-form-label">No. of Pages</label>
- 								<div class="col-sm-7">
- 									<input type="text" class="form-control" id="qtytxt" onchange="fnBindingQuantity()" /> (maximum 50 pages)
- 								</div>
- 							</div>
- 							<div class="form-group row mt-1">
- 								<label class="col-sm-3 col-form-label">Binding Location</label>
- 								<div class="col-sm-3">
- 									<input type="radio" class="form-check-input" name="bindlocTxt" checked=true value="1" onchange="fnBindingQuantity();">Side
- 								</div>
- 								<div class="col-sm-3">
- 									<input type="radio" class="form-check-input" name="bindlocTxt" value="2" onchange="fnBindingQuantity();">Head
- 								</div>
- 							</div>
- 							<div class="form-group row mt-1">
- 								<label class="col-sm-3 col-form-label">Quantity</label>
- 								<div class="col-sm-7">
- 									<input type="text" class="form-control" id="qtytxt" onchange="fnBindingQuantity()" />
- 								</div>
- 							</div>
- 							<div class="card-headerDiv mt-4">
-
-
- 								<span class="calculator-heading">
- 									<span class="calc-heading-text">Get Started</span>
- 									<span class="calc-total-price ">
- 										<span class="total-price" id="total_price">Rs 0.00/-</span>
- 									</span>
- 								</span>
- 							</div>
- 						<?php
-							} else if ($product_code == 'danglers') {
-							?>
- 							<h4 class="font-weight-bold mt-0">Details</h4>
- 							<div class="form-group row mt-1">
- 								<label class="col-sm-3 col-form-label">Shape</label>
- 								<div class="col-sm-7">
- 									<select class="form-select" id="cuttingtxt" onchange="fnDanglersSize()">
- 										<option value="0">Select</option>
- 										<option value="3" Selected>Rectangle</option>
- 										<option value="4">Square</option>
- 										<option value="5">Circle</option>
- 										<option value="-1">Custom</option>
- 									</select>
- 								</div>
- 							</div>
-
- 							<div class="form-group row mt-1">
- 								<label class="col-sm-3 col-form-label">Size</label>
- 								<div class="col-sm-7">
- 									<select class="form-select" id="papersize" onchange="fnDanglersQuantity()">
- 										<option value="0">Select</option>
-
- 									</select>
- 								</div>
- 							</div>
- 							<div class="form-group row mt-1">
- 								<label class="col-sm-3 col-form-label">Print On</label>
- 								<div class="col-sm-3">
- 									<input type="radio" class="form-check-input" name="front_backtxt" checked=true value="1" onchange="fnCalcPrice3()">Front
- 								</div>
- 								<div class="col-sm-4">
- 									<input type="radio" class="form-check-input" name="front_backtxt" value="2" onchange="fnCalcPrice3()">Front & Back
- 								</div>
- 							</div>
- 							<div class="form-group row mt-1">
- 								<label class="col-sm-3 col-form-label">Orientation</label>
- 								<div class="col-sm-3">
- 									<input type="radio" class="form-check-input" name="orientationTxt" checked=true value="1">Portrait
- 								</div>
- 								<div class="col-sm-4">
- 									<input type="radio" class="form-check-input" name="orientationTxt" value="2">Landscape
- 								</div>
- 							</div>
- 							<div class="form-group row mt-1">
- 								<label class="col-sm-3 col-form-label">Quantity</label>
- 								<div class="col-sm-7">
- 									<select class="form-select" id="quantity1txt" onchange="fnCalcPrice3()">
-
- 									</select>
- 								</div>
- 							</div>
- 							<div class="card-headerDiv mt-4">
-
-
- 								<span class="calculator-heading">
- 									<span class="calc-heading-text">Get Started</span>
- 									<span class="calc-total-price ">
- 										<span class="total-price" id="total_price">Rs 0.00/-</span>
- 									</span>
- 								</span>
- 							</div>
- 						<?php
-
-							} else if ($product_code == 'tabletents') {
-							?>
- 							<h4 class="font-weight-bold mt-0">Details</h4>
- 							<div class="form-group row mt-1">
- 								<label class="col-sm-3 col-form-label">Size</label>
- 								<div class="col-sm-7">
- 									<select class="form-select" id="papersize" onchange="fnTabletentsQuantity()">
- 										<option value="0">Select</option>
- 										<option value="5" Selected>A4</option>
- 										<option value="6">A5</option>
- 										<option value="16">A6</option>
- 									</select>
- 								</div>
- 							</div>
- 							<div class="form-group row mt-1">
- 								<label class="col-sm-3 col-form-label">Orientation</label>
- 								<div class="col-sm-3">
- 									<input type="radio" class="form-check-input" name="orientationTxt" checked=true value="1">Portrait
- 								</div>
- 								<div class="col-sm-4">
- 									<input type="radio" class="form-check-input" name="orientationTxt" value="2">Landscape
- 								</div>
- 							</div>
- 							<div class="form-group row mt-1">
- 								<label class="col-sm-3 col-form-label">Quantity</label>
- 								<div class="col-sm-7">
- 									<select class="form-select" id="quantity1txt" onchange="fnCalcPrice4()">
-
- 									</select>
- 								</div>
- 							</div>
- 							<div class="card-headerDiv mt-4">
-
-
- 								<span class="calculator-heading">
- 									<span class="calc-heading-text">Get Started</span>
- 									<span class="calc-total-price ">
- 										<span class="total-price" id="total_price">Rs 0.00/-</span>
- 									</span>
- 								</span>
- 							</div>
- 						<?php
-
-							} else if ($product_code == 'black_and_white' || $product_code == 'colour') {
-							?>
- 							<h4 class="font-weight-bold mt-0">Details</h4>
- 							<div class="form-group row mt-1">
- 								<label class="col-sm-3 col-form-label">Size</label>
- 								<div class="col-sm-7">
- 									<select class="form-select" id="papersize">
- 										<option value="0">Select</option>
- 										<option value="5" Selected>A4</option>
- 										<option value="6">A3</option>
- 									</select>
- 								</div>
- 							</div>
- 							<div class="form-group row mt-1">
- 								<label class="col-sm-3 col-form-label">Print Location</label>
- 								<div class="col-sm-3">
- 									<input type="radio" class="form-check-input" name="front_backtxt" checked=true value="1">Front
- 								</div>
- 								<div class="col-sm-4">
- 									<input type="radio" class="form-check-input" name="front_backtxt" value="2">Front & Back
- 								</div>
- 							</div>
- 							<div class="form-group row mt-1">
- 								<label class="col-sm-3 col-form-label">Orientation</label>
- 								<div class="col-sm-3">
- 									<input type="radio" class="form-check-input" name="orientationTxt" checked=true value="1">Portrait
- 								</div>
- 								<div class="col-sm-4">
- 									<input type="radio" class="form-check-input" name="orientationTxt" value="2">Landscape
- 								</div>
- 							</div>
- 							<div class="form-group row mt-1">
- 								<label class="col-sm-3 col-form-label">Quantity</label>
- 								<div class="col-sm-7">
- 									<input type="text" class="form-control" id="quantity1txt" onchange="fnCalcPrice5()" />
-
- 									</select>
- 								</div>
- 							</div>
- 							<div class="card-headerDiv mt-4">
-
-
- 								<span class="calculator-heading">
- 									<span class="calc-heading-text">Get Started</span>
- 									<span class="calc-total-price ">
- 										<span class="total-price" id="total_price">Rs 0.00/-</span>
- 									</span>
- 								</span>
- 							</div>
- 						<?php
-							} else if ($product_code == 'door_hangers' || $product_code == 'greeting_cards' || $product_code == 'thank_you_cards' || $product_code == 'tickets') {
-							?>
- 							<h4 class="font-weight-bold mt-0">Details</h4>
- 							<div class="form-group row mt-1">
- 								<label class="col-sm-3 col-form-label">Size</label>
- 								<div class="col-sm-7">
-
- 									<?php
-										if ($product_code == 'door_hangers') {
-										?>
- 										<select class="form-select" id="papersize" onchange="fnDoorHangersQuantity()">
- 											<option value="0">Select</option>
- 											<option value="23" Selected>3.5x8.5 inches</option>
- 											<option value="24">4.5x11 inches</option>
- 										</select>
- 								</div>
- 							<?php
-										} else if ($product_code == 'greeting_cards') {
-								?>
- 								<select class="form-select" id="papersize" onchange="fnGreetingCardsQuantity()">
+						?>
+ 						<div class="form-group row mt-1">
+ 							<label class="col-sm-3 col-form-label">Size</label>
+ 							<div class="col-sm-7">
+ 								<select class="form-select" id="paperTypetxt" onchange="fnFlyersQuantity()">
  									<option value="0">Select</option>
  									<option value="5" Selected>A4</option>
  									<option value="6">A5</option>
- 									<option value="16">A6</option>
- 									<option value="25">A4 Folded</option>
- 									<option value="26">A5 Folded</option>
- 									<option value="27">A6 Folded</option>
  								</select>
  							</div>
- 						<?php
-										} else if ($product_code == 'thank_you_cards') {
-							?>
- 							<select class="form-select" id="papersize" onchange="fnThankyouCardsQuantity()">
- 								<option value="0">Select</option>
- 								<option value="6" Selected>A5</option>
- 								<option value="16">A6</option>
- 							</select>
- 					</div>
- 				<?php
-										} else if ($product_code == 'tickets') {
-					?>
- 					<select class="form-select" id="papersize" onchange="fnTicketsQuantity()">
- 						<option value="0">Select</option>
- 						<option value="28" Selected>10x6 inches</option>
- 						<option value="29">9x4 inches</option>
- 						<option value="30">8x3 inches</option>
- 					</select>
- 				</div>
- 			<?php
+ 						</div>
+
+ 					<?php
+									} else if ($product_code == 'id_cards') {
+						?>
+ 						<div class="form-group row mt-1">
+ 							<label class="col-sm-3 col-form-label">Print On</label>
+ 							<div class="col-sm-3">
+ 								<input type="radio" class="form-check-input" name="front_backtxt" checked=true value="1" onchange="fnCalcPrice2();">Front
+ 							</div>
+ 							<div class="col-sm-4">
+ 								<input type="radio" class="form-check-input" name="front_backtxt" value="2" onchange="fnCalcPrice2();">Front & Back
+ 							</div>
+ 						</div>
+
+ 					<?php
+									} else if ($product_code == 'bookmarks') {
+						?>
+ 						<div class="form-group row mt-1">
+ 							<label class="col-sm-3 col-form-label">Size</label>
+ 							<div class="col-sm-7">
+ 								<select class="form-select" id="paperTypetxt" onchange="fnBookmarksQuantity()">
+ 									<option value="0">Select</option>
+ 									<option value="13" Selected>2 x 6 inches</option>
+ 									<option value="14">2 x 7 inches</option>
+ 									<option value="15">2 x 8 inches</option>
+ 								</select>
+ 							</div>
+ 						</div>
+ 						<div class="form-group row mt-1">
+ 							<label class="col-sm-3 col-form-label">Print On</label>
+ 							<div class="col-sm-3">
+ 								<input type="radio" class="form-check-input" name="front_backtxt" checked=true value="1" onchange="fnCalcPrice1();">Front
+ 							</div>
+ 							<div class="col-sm-4">
+ 								<input type="radio" class="form-check-input" name="front_backtxt" value="2" onchange="fnCalcPrice1();">Front & Back
+ 							</div>
+ 						</div>
+ 					<?php
+									} else if ($product_code == 'lanyards') {
+						?>
+ 						<div class="form-group row mt-1">
+ 							<label class="col-sm-3 col-form-label">Size</label>
+ 							<div class="col-sm-7">
+ 								<select class="form-select" id="paperTypetxt" onchange="fnLanyardsQuantity()">
+ 									<option value="0">Select</option>
+ 									<option value="7" Selected>12 mm</option>
+ 									<option value="8">16 mm</option>
+ 									<option value="9">20 mm</option>
+ 								</select>
+ 							</div>
+ 						</div>
+
+ 					<?php
+									} else if ($product_code == 'brochures' || $product_code == 'catalogs') {
+						?>
+ 						<div class="form-group row mt-1">
+ 							<label class="col-sm-3 col-form-label">Size</label>
+ 							<div class="col-sm-7">
+ 								<select class="form-select" id="sizetxt" onchange="fnBrouchersQuantity()">
+ 									<option value="0">Select</option>
+ 									<option value="5" Selected>A4</option>
+ 									<?php
+										if ($product_code == 'brochures') {
+											echo ' <option value="6">A5</option>';
 										}
-				?>
- 			</div>
- 			<?php
-								if ($product_code == 'tickets') {
-				?>
- 				<div class="form-group row mt-1">
- 					<label class="col-sm-3 col-form-label">Print Material</label>
- 					<div class="col-sm-3">
- 						<input type="radio" class="form-check-input" name="print_materialtxt" checked=true value="130">130 GSM
- 					</div>
- 					<div class="col-sm-3">
- 						<input type="radio" class="form-check-input" name="print_materialtxt" value="170">170 GSM
- 					</div>
- 					<div class="col-sm-3">
- 						<input type="radio" class="form-check-input" name="print_materialtxt" value="300">300 GSM
- 					</div>
- 				</div>
- 			<?php
+										?>
+ 								</select>
+ 							</div>
+ 						</div>
+ 						<div class="form-group row mt-1">
+ 							<label class="col-sm-3 col-form-label">Print On</label>
+ 							<div class="col-sm-3">
+ 								<input type="radio" class="form-check-input" name="front_backtxt" checked=true value="1" onchange="fnCalcPrice();">Front
+ 							</div>
+ 							<div class="col-sm-4">
+ 								<input type="radio" class="form-check-input" name="front_backtxt" value="2" onchange="fnCalcPrice();">Front & Back
+ 							</div>
+ 						</div>
+ 						<div class="form-group row mt-1">
+ 							<label class="col-sm-3 col-form-label">Orientation</label>
+ 							<div class="col-sm-3">
+ 								<input type="radio" class="form-check-input" name="orientationTxt" checked=true value="1" onchange="fnCalcPrice4();">Portrait
+ 							</div>
+ 							<div class="col-sm-4">
+ 								<input type="radio" class="form-check-input" name="orientationTxt" value="2" onchange="fnCalcPrice4();">Lanscape
+ 							</div>
+ 						</div>
+
+ 						<div class="form-group row mt-1">
+ 							<label class="col-sm-3 col-form-label">Paper Type</label>
+ 							<div class="col-sm-7">
+ 								<select class="form-select" id="paperTypetxt" onchange="fnCalcPrice4()">
+ 									<option value="0">Select</option>
+ 									<option value="130" Selected>130 GSM</option>
+ 									<option value="170">170 GSM</option>
+ 								</select>
+ 							</div>
+ 						</div>
+ 						<div class="form-group row mt-1">
+ 							<label class="col-sm-3 col-form-label">Folding</label>
+ 							<div class="col-sm-3">
+ 								<input type="radio" class="form-check-input" name="foldingTxt" value="1" onchange="fnCalcPrice4();">None
+ 							</div>
+ 							<div class="col-sm-3">
+ 								<input type="radio" class="form-check-input" name="foldingTxt" checked=true value="2" onchange="fnCalcPrice4();">Half
+ 							</div>
+ 							<div class="col-sm-3">
+ 								<input type="radio" class="form-check-input" name="foldingTxt" value="3" onchange="fnCalcPrice4();">Trifold
+ 							</div>
+ 						</div>
+ 					<?php
+									} else if ($product_code == 'booklets') {
+						?>
+ 						<div class="form-group row mt-1">
+ 							<label class="col-sm-3 col-form-label">Size</label>
+ 							<div class="col-sm-7">
+ 								<select class="form-select" id="sizetxt" onchange="fnBooklets()">
+ 									<option value="0">Select</option>
+ 									<option value="A4" Selected>A4</option>
+ 									<option value="A5">A5</option>
+ 									<option value="Custom">Custom</option>
+ 								</select>
+ 							</div>
+ 						</div>
+ 						<div class="form-group row mt-1">
+ 							<label class="col-sm-3 col-form-label">Paper Type</label>
+ 							<div class="col-sm-7">
+ 								<select class="form-select" id="paperTypetxt" onchange="fnBooklets()">
+ 									<option value="0">Select</option>
+ 									<option value="170" Selected>170 GSM</option>
+ 									<option value="130">130 GSM</option>
+ 								</select>
+ 							</div>
+ 						</div>
+ 						<div class="form-group row mt-1">
+ 							<label class="col-sm-3 col-form-label">Pages</label>
+ 							<div class="col-sm-7">
+ 								<input type="text" class="form-control" id="pagestxt" onchange="fnBooklets()" />
+ 							</div>
+ 						</div>
+ 						<div class="form-group row mt-1">
+ 							<label class="col-sm-3 col-form-label">Quantity</label>
+ 							<div class="col-sm-7">
+ 								<input type="text" class="form-control" id="qtytxt" onchange="fnBooklets()" />
+ 							</div>
+ 						</div>
+ 					<?php
+									}
+									if ($product_code != 'booklets') {
+						?>
+ 						<div class="form-group row mt-1">
+ 							<label class="col-sm-3 col-form-label">Quantity</label>
+ 							<div class="col-sm-7">
+ 								<select class="form-select" id="quantity1txt" onchange="fnCalcPrice1()">
+
+ 								</select>
+ 							</div>
+ 						</div>
+ 				<?php
+									}
 								}
-				?>
- 			<div class="form-group row mt-1">
- 				<label class="col-sm-3 col-form-label">Print Location</label>
- 				<div class="col-sm-3">
- 					<input type="radio" class="form-check-input" name="front_backtxt" checked=true value="1" onchange="fnCalcPrice4()">Front
+					?>
+ 				<div class="card-headerDiv mt-1">
+
+
+ 					<span class="calculator-heading">
+ 						<span class="calc-heading-text">Get Started</span>
+ 						<span class="calc-total-price ">
+ 							<span class="total-price" id="total_price">Rs 0.00/-</span>
+ 						</span>
+ 					</span>
  				</div>
- 				<div class="col-sm-4">
- 					<input type="radio" class="form-check-input" name="front_backtxt" value="2" onchange="fnCalcPrice4()">Front & Back
- 				</div>
- 			</div>
  			<?php
-								if ($product_code == 'greeting_cards' || $product_code == 'thank_you_cards' || $product_code == 'tickets') {
+							} else if ($product_sub_category_name == 'bindings') {
 				?>
+ 				<h4 class="font-weight-bold mt-0">Details</h4>
+ 				<div class="form-group row mt-1">
+ 					<label class="col-sm-3 col-form-label">Document Size</label>
+ 					<div class="col-sm-7">
+ 						<select class="form-select" id="paperTypetxt" onchange="fnBindingQuantity()">
+ 							<option value="0">Select</option>
+ 							<option value="5" Selected>A4</option>
+ 							<option value="6">A5</option>
+ 							<option value="7">A6</option>
+ 							<option value="custom">Custom</option>
+ 						</select>
+ 					</div>
+ 				</div>
+ 				<div class="form-group row mt-1">
+ 					<label class="col-sm-3 col-form-label">No. of Pages</label>
+ 					<div class="col-sm-7">
+ 						<input type="text" class="form-control" id="qtytxt" onchange="fnBindingQuantity()" /> (maximum 50 pages)
+ 					</div>
+ 				</div>
+ 				<div class="form-group row mt-1">
+ 					<label class="col-sm-3 col-form-label">Binding Location</label>
+ 					<div class="col-sm-3">
+ 						<input type="radio" class="form-check-input" name="bindlocTxt" checked=true value="1" onchange="fnBindingQuantity();">Side
+ 					</div>
+ 					<div class="col-sm-3">
+ 						<input type="radio" class="form-check-input" name="bindlocTxt" value="2" onchange="fnBindingQuantity();">Head
+ 					</div>
+ 				</div>
+ 				<div class="form-group row mt-1">
+ 					<label class="col-sm-3 col-form-label">Quantity</label>
+ 					<div class="col-sm-7">
+ 						<input type="text" class="form-control" id="qtytxt" onchange="fnBindingQuantity()" />
+ 					</div>
+ 				</div>
+ 				<div class="card-headerDiv mt-4">
+
+
+ 					<span class="calculator-heading">
+ 						<span class="calc-heading-text">Get Started</span>
+ 						<span class="calc-total-price ">
+ 							<span class="total-price" id="total_price">Rs 0.00/-</span>
+ 						</span>
+ 					</span>
+ 				</div>
+ 			<?php
+							} else if ($product_code == 'danglers') {
+				?>
+ 				<h4 class="font-weight-bold mt-0">Details</h4>
+ 				<div class="form-group row mt-1">
+ 					<label class="col-sm-3 col-form-label">Shape</label>
+ 					<div class="col-sm-7">
+ 						<select class="form-select" id="cuttingtxt" onchange="fnDanglersSize()">
+ 							<option value="0">Select</option>
+ 							<option value="3" Selected>Rectangle</option>
+ 							<option value="4">Square</option>
+ 							<option value="5">Circle</option>
+ 							<option value="-1">Custom</option>
+ 						</select>
+ 					</div>
+ 				</div>
+
+ 				<div class="form-group row mt-1">
+ 					<label class="col-sm-3 col-form-label">Size</label>
+ 					<div class="col-sm-7">
+ 						<select class="form-select" id="papersize" onchange="fnDanglersQuantity()">
+ 							<option value="0">Select</option>
+
+ 						</select>
+ 					</div>
+ 				</div>
+ 				<div class="form-group row mt-1">
+ 					<label class="col-sm-3 col-form-label">Print On</label>
+ 					<div class="col-sm-3">
+ 						<input type="radio" class="form-check-input" name="front_backtxt" checked=true value="1" onchange="fnCalcPrice3()">Front
+ 					</div>
+ 					<div class="col-sm-4">
+ 						<input type="radio" class="form-check-input" name="front_backtxt" value="2" onchange="fnCalcPrice3()">Front & Back
+ 					</div>
+ 				</div>
  				<div class="form-group row mt-1">
  					<label class="col-sm-3 col-form-label">Orientation</label>
  					<div class="col-sm-3">
@@ -999,43 +807,247 @@
  						<input type="radio" class="form-check-input" name="orientationTxt" value="2">Landscape
  					</div>
  				</div>
- 			<?php
-								}
-				?>
- 			<div class="form-group row mt-1">
- 				<label class="col-sm-3 col-form-label">Quantity</label>
- 				<div class="col-sm-7">
- 					<select class="form-select" id="quantity1txt" onchange="fnCalcPrice4()">
+ 				<div class="form-group row mt-1">
+ 					<label class="col-sm-3 col-form-label">Quantity</label>
+ 					<div class="col-sm-7">
+ 						<select class="form-select" id="quantity1txt" onchange="fnCalcPrice3()">
 
+ 						</select>
+ 					</div>
+ 				</div>
+ 				<div class="card-headerDiv mt-4">
+
+
+ 					<span class="calculator-heading">
+ 						<span class="calc-heading-text">Get Started</span>
+ 						<span class="calc-total-price ">
+ 							<span class="total-price" id="total_price">Rs 0.00/-</span>
+ 						</span>
+ 					</span>
+ 				</div>
+ 			<?php
+
+							} else if ($product_code == 'tabletents') {
+				?>
+ 				<h4 class="font-weight-bold mt-0">Details</h4>
+ 				<div class="form-group row mt-1">
+ 					<label class="col-sm-3 col-form-label">Size</label>
+ 					<div class="col-sm-7">
+ 						<select class="form-select" id="papersize" onchange="fnTabletentsQuantity()">
+ 							<option value="0">Select</option>
+ 							<option value="5" Selected>A4</option>
+ 							<option value="6">A5</option>
+ 							<option value="16">A6</option>
+ 						</select>
+ 					</div>
+ 				</div>
+ 				<div class="form-group row mt-1">
+ 					<label class="col-sm-3 col-form-label">Orientation</label>
+ 					<div class="col-sm-3">
+ 						<input type="radio" class="form-check-input" name="orientationTxt" checked=true value="1">Portrait
+ 					</div>
+ 					<div class="col-sm-4">
+ 						<input type="radio" class="form-check-input" name="orientationTxt" value="2">Landscape
+ 					</div>
+ 				</div>
+ 				<div class="form-group row mt-1">
+ 					<label class="col-sm-3 col-form-label">Quantity</label>
+ 					<div class="col-sm-7">
+ 						<select class="form-select" id="quantity1txt" onchange="fnCalcPrice4()">
+
+ 						</select>
+ 					</div>
+ 				</div>
+ 				<div class="card-headerDiv mt-4">
+
+
+ 					<span class="calculator-heading">
+ 						<span class="calc-heading-text">Get Started</span>
+ 						<span class="calc-total-price ">
+ 							<span class="total-price" id="total_price">Rs 0.00/-</span>
+ 						</span>
+ 					</span>
+ 				</div>
+ 			<?php
+
+							} else if ($product_code == 'black_and_white' || $product_code == 'colour') {
+				?>
+ 				<h4 class="font-weight-bold mt-0">Details</h4>
+ 				<div class="form-group row mt-1">
+ 					<label class="col-sm-3 col-form-label">Size</label>
+ 					<div class="col-sm-7">
+ 						<select class="form-select" id="papersize">
+ 							<option value="0">Select</option>
+ 							<option value="5" Selected>A4</option>
+ 							<option value="6">A3</option>
+ 						</select>
+ 					</div>
+ 				</div>
+ 				<div class="form-group row mt-1">
+ 					<label class="col-sm-3 col-form-label">Print Location</label>
+ 					<div class="col-sm-3">
+ 						<input type="radio" class="form-check-input" name="front_backtxt" checked=true value="1">Front
+ 					</div>
+ 					<div class="col-sm-4">
+ 						<input type="radio" class="form-check-input" name="front_backtxt" value="2">Front & Back
+ 					</div>
+ 				</div>
+ 				<div class="form-group row mt-1">
+ 					<label class="col-sm-3 col-form-label">Orientation</label>
+ 					<div class="col-sm-3">
+ 						<input type="radio" class="form-check-input" name="orientationTxt" checked=true value="1">Portrait
+ 					</div>
+ 					<div class="col-sm-4">
+ 						<input type="radio" class="form-check-input" name="orientationTxt" value="2">Landscape
+ 					</div>
+ 				</div>
+ 				<div class="form-group row mt-1">
+ 					<label class="col-sm-3 col-form-label">Quantity</label>
+ 					<div class="col-sm-7">
+ 						<input type="text" class="form-control" id="quantity1txt" onchange="fnCalcPrice5()" />
+
+ 						</select>
+ 					</div>
+ 				</div>
+ 				<div class="card-headerDiv mt-4">
+
+
+ 					<span class="calculator-heading">
+ 						<span class="calc-heading-text">Get Started</span>
+ 						<span class="calc-total-price ">
+ 							<span class="total-price" id="total_price">Rs 0.00/-</span>
+ 						</span>
+ 					</span>
+ 				</div>
+ 			<?php
+							} else if ($product_code == 'door_hangers' || $product_code == 'greeting_cards' || $product_code == 'thank_you_cards' || $product_code == 'tickets') {
+				?>
+ 				<h4 class="font-weight-bold mt-0">Details</h4>
+ 				<div class="form-group row mt-1">
+ 					<label class="col-sm-3 col-form-label">Size</label>
+ 					<div class="col-sm-7">
+
+ 						<?php
+								if ($product_code == 'door_hangers') {
+							?>
+ 							<select class="form-select" id="papersize" onchange="fnDoorHangersQuantity()">
+ 								<option value="0">Select</option>
+ 								<option value="23" Selected>3.5x8.5 inches</option>
+ 								<option value="24">4.5x11 inches</option>
+ 							</select>
+ 					</div>
+ 				<?php
+								} else if ($product_code == 'greeting_cards') {
+					?>
+ 					<select class="form-select" id="papersize" onchange="fnGreetingCardsQuantity()">
+ 						<option value="0">Select</option>
+ 						<option value="5" Selected>A4</option>
+ 						<option value="6">A5</option>
+ 						<option value="16">A6</option>
+ 						<option value="25">A4 Folded</option>
+ 						<option value="26">A5 Folded</option>
+ 						<option value="27">A6 Folded</option>
  					</select>
  				</div>
- 			</div>
- 			<div class="card-headerDiv mt-4">
-
-
- 				<span class="calculator-heading">
- 					<span class="calc-heading-text">Get Started</span>
- 					<span class="calc-total-price ">
- 						<span class="total-price" id="total_price">Rs 0.00/-</span>
- 					</span>
- 				</span>
+ 			<?php
+								} else if ($product_code == 'thank_you_cards') {
+				?>
+ 				<select class="form-select" id="papersize" onchange="fnThankyouCardsQuantity()">
+ 					<option value="0">Select</option>
+ 					<option value="6" Selected>A5</option>
+ 					<option value="16">A6</option>
+ 				</select>
+ 				</div>
+ 			<?php
+								} else if ($product_code == 'tickets') {
+				?>
+ 				<select class="form-select" id="papersize" onchange="fnTicketsQuantity()">
+ 					<option value="0">Select</option>
+ 					<option value="28" Selected>10x6 inches</option>
+ 					<option value="29">9x4 inches</option>
+ 					<option value="30">8x3 inches</option>
+ 				</select>
  			</div>
  		<?php
-
-							}
+								}
 			?>
- 		<div class="product-description">
- 			<div class="mt-4">
- 				<h4 class="font-weight-bold">Description</h4>
- 				<?php
-					echo $product_desc;
-					?>
+ 		</div>
+ 		<?php
+								if ($product_code == 'tickets') {
+			?>
+ 			<div class="form-group row mt-1">
+ 				<label class="col-sm-3 col-form-label">Print Material</label>
+ 				<div class="col-sm-3">
+ 					<input type="radio" class="form-check-input" name="print_materialtxt" checked=true value="130">130 GSM
+ 				</div>
+ 				<div class="col-sm-3">
+ 					<input type="radio" class="form-check-input" name="print_materialtxt" value="170">170 GSM
+ 				</div>
+ 				<div class="col-sm-3">
+ 					<input type="radio" class="form-check-input" name="print_materialtxt" value="300">300 GSM
+ 				</div>
+ 			</div>
+ 		<?php
+								}
+			?>
+ 		<div class="form-group row mt-1">
+ 			<label class="col-sm-3 col-form-label">Print Location</label>
+ 			<div class="col-sm-3">
+ 				<input type="radio" class="form-check-input" name="front_backtxt" checked=true value="1" onchange="fnCalcPrice4()">Front
+ 			</div>
+ 			<div class="col-sm-4">
+ 				<input type="radio" class="form-check-input" name="front_backtxt" value="2" onchange="fnCalcPrice4()">Front & Back
  			</div>
  		</div>
- 		</div>
- 		<div class="card mt-2">
+ 		<?php
+								if ($product_code == 'greeting_cards' || $product_code == 'thank_you_cards' || $product_code == 'tickets') {
+			?>
+ 			<div class="form-group row mt-1">
+ 				<label class="col-sm-3 col-form-label">Orientation</label>
+ 				<div class="col-sm-3">
+ 					<input type="radio" class="form-check-input" name="orientationTxt" checked=true value="1">Portrait
+ 				</div>
+ 				<div class="col-sm-4">
+ 					<input type="radio" class="form-check-input" name="orientationTxt" value="2">Landscape
+ 				</div>
+ 			</div>
+ 		<?php
+								}
+			?>
+ 		<div class="form-group row mt-1">
+ 			<label class="col-sm-3 col-form-label">Quantity</label>
+ 			<div class="col-sm-7">
+ 				<select class="form-select" id="quantity1txt" onchange="fnCalcPrice4()">
 
+ 				</select>
+ 			</div>
  		</div>
+ 		<div class="card-headerDiv mt-4">
+
+
+ 			<span class="calculator-heading">
+ 				<span class="calc-heading-text">Get Started</span>
+ 				<span class="calc-total-price ">
+ 					<span class="total-price" id="total_price">Rs 0.00/-</span>
+ 				</span>
+ 			</span>
+ 		</div>
+ 	<?php
+
+							}
+		?>
+ 	<div class="product-description">
+ 		<div class="mt-4">
+ 			<h4 class="font-weight-bold">Description</h4>
+ 			<?php
+				echo $product_desc;
+				?>
+ 		</div>
+ 	</div>
+ 	</div>
+ 	<div class="card mt-2">
+
+ 	</div>
  	</div>
 
  	</div>
@@ -1049,12 +1061,38 @@
  <script src='js/jquery_1_11_0.min.js'></script>
  <script src='js/lightslider.js'></script>
  <script>
- 	
+ 	$(document).ready(function() {
+ 		$('#fileUpload').on('change', function() {
+ 			var file = $(this)[0].files[0];
+ 			var formData = new FormData();
+ 			formData.append('fileUpload', file);
 
-
-
-
-
+ 			$.ajax({
+ 				url: 'file_upload.php', 
+ 				type: 'POST',
+ 				data: formData,
+ 				contentType: false,
+ 				processData: false,
+ 				xhr: function() {
+ 					var xhr = new window.XMLHttpRequest();
+ 					xhr.upload.addEventListener('progress', function(event) {
+ 						if (event.lengthComputable) {
+ 							var percent = (event.loaded / event.total) * 100;
+ 							$('#progressBar').show().val(percent);
+ 							$('#uploadStatus').html(percent + '% uploaded');
+ 						}
+ 					}, false);
+ 					return xhr;
+ 				},
+ 				success: function(response) {
+ 					$('#uploadStatus').html(response); 
+ 				},
+ 				error: function(xhr, status, error) {
+ 					$('#uploadStatus').html('Error occurred: ' + error); 
+ 				}
+ 			});
+ 		});
+ 	});
  	$('#lightSlider').lightSlider({
  		gallery: true,
  		item: 1,
@@ -1593,7 +1631,7 @@
  		} else if (selId == 2) {
  			arr = [100, 200, 300, 400, 500, 1000, 2000, 3000, 4000, 5000];
  		} else if (selId == 31) {
- 			arr = [96, 192, 288, 384, 504, 1968, 3000, 4984, 4968];
+ 			arr = [96, 192, 288, 384, 504, 1968, 3000, 3984, 4968];
  		}
  		$('#quantitytxt').empty();
  		$('#quantitytxt').append('<option value="0">Select</option>');
