@@ -16,6 +16,7 @@ $pincode="";
 $mobile_no="";
 $email_id="";
 $pass_word="";
+
 if($row=mysqli_query($connection,"select *  from member_master where email='".$session_email_Id."'"))
     {
         if($data=mysqli_fetch_array($row))

@@ -22,6 +22,7 @@ include "header.php";
 				</div>
 			</div>
 		</div>
+		<button><a href="purchase_request_list.php">purchase list</button>
 	</div>
 </section>
 <?php
@@ -32,4 +33,5 @@ include "footer.php";
 	$(document).ready(function() {
 		loadProductsInViewCart();
 	});
+	
 </script>

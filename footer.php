@@ -119,6 +119,7 @@ $(document).ready(function(e){
          }        
          $('.cart_qty').text(total_qty);
 });
+
 </script>
 
   </div><!-- Body inner end -->

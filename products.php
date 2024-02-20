@@ -1068,7 +1068,7 @@
  			formData.append('fileUpload', file);
 
  			$.ajax({
- 				url: 'file_upload.php', 
+ 				url: 'file_upload.php',
  				type: 'POST',
  				data: formData,
  				contentType: false,
@@ -1085,10 +1085,10 @@
  					return xhr;
  				},
  				success: function(response) {
- 					$('#uploadStatus').html(response); 
+ 					$('#uploadStatus').html(response);
  				},
  				error: function(xhr, status, error) {
- 					$('#uploadStatus').html('Error occurred: ' + error); 
+ 					$('#uploadStatus').html('Error occurred: ' + error);
  				}
  			});
  		});

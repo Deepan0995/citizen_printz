@@ -16,7 +16,7 @@ if (isset($_SESSION['email_id'])) {
         $user_row = mysqli_fetch_assoc($user_result);
 
         // Query to retrieve purchase requests associated with the user ID
-        $query = "SELECT pm.*, pd.product_id, pd.qty, pd.product_amount
+        $query = "SELECT pm.*, pd.product_id, pd.qty, pd.product_amount, pd.attach_file_path
                   FROM purchase_request_master pm
                   INNER JOIN purchase_request_details pd ON pm.purchase_request_no = pd.purchase_request_no
                   WHERE pm.email_id = '$email_id'";
@@ -36,6 +36,8 @@ if (isset($_SESSION['email_id'])) {
                             <th>Total Products</th>
                             <th>Net Amount</th>
                             <th>Status</th>
+                            <th>Action</th> <!-- New column for the view button -->
+
                         </tr>
                     </thead>
                     <tbody>
@@ -46,9 +48,16 @@ if (isset($_SESSION['email_id'])) {
                                 <td><?php echo $row['no_of_products']; ?></td>
                                 <td><?php echo $row['net_amount']; ?></td>
                                 <td><?php echo $row['purchase_request_approved']; ?></td>
+
+                                <td>
+
+                                    <!-- View button -->
+                                    <a href="#" onclick="openPopup('<?php echo $image_url = 'http://localhost/cp/file_uploads/' . $row['attach_file_path'] . '.png'; ?> ')" class="btn btn-primary">View</a>
+                                </td>
                             </tr>
                         <?php } ?>
                     </tbody>
+                    
                 </table>
             </div>
 <?php
@@ -65,3 +74,10 @@ if (isset($_SESSION['email_id'])) {
 <?php
 include "footer.php";
 ?>
+
+<script>
+    // Function to open the URL in a popup window
+    function openPopup(url) {
+        window.open(url, '_blank', 'width=800,height=600');
+    }
+</script>
